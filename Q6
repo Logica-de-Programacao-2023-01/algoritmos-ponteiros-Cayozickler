@@ -1,0 +1,33 @@
+package main
+
+import (
+	"fmt"
+)
+
+type Livro struct {
+	titulo string
+	autor  string
+}
+
+func updateTitleIfAnonymous(ptr *Livro) {
+	if ptr.autor == "Anônimo" {
+		ptr.titulo = "Desconhecido"
+	}
+}
+
+func main() {
+	livro := Livro{
+		titulo: "Livro A",
+		autor:  "Autor X",
+	}
+
+	fmt.Println("Livro antes da atualização:")
+	fmt.Println("Título:", livro.titulo)
+	fmt.Println("Autor:", livro.autor)
+
+	updateTitleIfAnonymous(&livro)
+
+	fmt.Println("\nLivro após a atualização:")
+	fmt.Println("Título:", livro.titulo)
+	fmt.Println("Autor:", livro.autor)
+}
