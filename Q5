@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func updateWithPi(ptr *float64) {
+	*pi := math.Pi
+	*ptr = (*ptr + *pi) / 2
+}
+
+func main() {
+	var num float64
+	fmt.Println("Digite um número:")
+	fmt.Scanln(&num)
+	fmt.Println("Valor inicial:", num)
+	updateWithPi(&num)
+	fmt.Println("Novo valor:", num)
+}
