@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+)
+
+type Conta struct {
+	saldo   float64
+	titular string
+}
+
+func adicionarValor(ptr *Conta, valor float64) {
+	ptr.saldo += valor
+}
+
+func main() {
+	conta := Conta{
+		saldo:   1000.0,
+		titular: "João",
+	}
+
+	fmt.Println("Saldo antes da adição:", conta.saldo)
+	adicionarValor(&conta, 500.0)
+	fmt.Println("Saldo após a adição:", conta.saldo)
+}
