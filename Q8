@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+)
+
+func modifyValue(ptr *int) {
+	*ptr = 42 // Modifica o valor da variável apontada pelo ponteiro
+}
+
+func main() {
+	// Aloca memória para a variável e obtém o ponteiro
+	num := new(int)
+
+	// Verifica se o ponteiro é válido
+	if num == nil {
+		fmt.Println("Erro ao alocar memória.")
+		return
+	}
+
+	fmt.Println("Valor inicial:", *num)
+
+	modifyValue(num)
+
+	fmt.Println("Valor modificado:", *num)
+
+	// Libera a memória alocada
+	freeMemory(num)
+}
+
+func freeMemory(ptr *int) {
+	// Libera a memória alocada pelo ponteiro
+	ptr = nil
+}
+c

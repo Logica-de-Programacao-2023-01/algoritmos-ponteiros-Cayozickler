@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+)
+
+func sumLastTwoDigits(ptr *int) {
+	num := *ptr
+	lastDigit := num % 10
+	num /= 10
+	secondLastDigit := num % 10
+	sum := lastDigit + secondLastDigit
+	*ptr = sum
+}
+
+func main() {
+	var num int
+	fmt.Println("Digite um número inteiro:")
+	fmt.Scanln(&num)
+	fmt.Println("Valor inicial:", num)
+	sumLastTwoDigits(&num)
+	fmt.Println("Novo valor:", num)
+}

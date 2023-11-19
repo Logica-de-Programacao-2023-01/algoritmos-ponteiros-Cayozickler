@@ -1,0 +1,42 @@
+package main
+
+import (
+	"fmt"
+)
+
+func isPrime(num int) bool {
+	if num <= 1 {
+		return false
+	}
+
+	for i := 2; i*i <= num; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+
+	return true
+}
+
+func fillWithPrimes(ptr *[]int, size int) {
+	primes := *ptr
+	count := 0
+	num := 2
+
+	for count < size {
+		if isPrime(num) {
+			primes[count] = num
+			count++
+		}
+		num++
+	}
+}
+
+func main() {
+	size := 10
+	primes := make([]int, size)
+
+	fillWithPrimes(&primes, size)
+
+	fmt.Println(primes)
+}
